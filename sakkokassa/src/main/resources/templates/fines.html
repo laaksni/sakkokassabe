@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Fines</title>
+</head>
+
+<body>
+    <h1>Fines</h1>
+
+    <a href="/fines/new">
+        <button>Lisää uusi sakko</button>
+    </a>
+
+    <table>
+        <tr>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Player</th>
+            <th>Paid</th>
+            <th>Date</th>
+        </tr>
+        <tr th:each="fine : ${fines}">
+            <td th:text="${fine.description}"></td>
+            <td th:text="${fine.amount}"></td>
+            <td th:text="${fine.player.name}"></td>
+            <td th:text="${fine.paid ? 'Yes' : 'No'}"></td>
+            <td th:text="${fine.date}"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

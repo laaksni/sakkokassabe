@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Fine</title>
+</head>
+
+<body>
+    <h1>Add Fine</h1>
+    <form th:action="@{/fines}" th:object="${fine}" method="post">
+        <label>Description</label>
+        <input type="text" th:field="*{description}" />
+        <label>Amount</label>
+        <input type="number" th:field="*{amount}" />
+        <label>Player</label>
+        <select th:field="*{player.id}">
+            <option th:each="player : ${players}" th:value="${player.id}" th:text="${player.name}"></option>
+        </select>
+        <label for="date">Päivämäärä:</label>
+        <input type="date" id="date" th:field="*{date}" />
+        <button type="submit">Add Fine</button>
+    </form>
+</body>
+
+</html>
