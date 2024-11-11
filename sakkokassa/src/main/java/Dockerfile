@@ -9,8 +9,8 @@ RUN mvn -f /home/app/pom.xml clean package
 #
 # Jar Package
 #
-# StudentListSecureDB-0.0.1-SNAPSHOT.jar  = <artifactId>-<version>.jar (pom.xml)
+# sakkokassa-0.0.1-SNAPSHOT.jar  = <artifactId>-<version>.jar (pom.xml)
 FROM eclipse-temurin:17-jre-focal
-COPY --from=build /home/app/target/StudentListSecureDB-0.0.1-SNAPSHOT.jar /usr/local/lib/studentlistsecuredb.jar
+COPY --from=build /home/app/target/sakkokassa-0.0.1-SNAPSHOT.jar /usr/local/lib/studentlistsecuredb.jar
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/usr/local/lib/studentlistsecuredb.jar"]
+ENTRYPOINT ["java", "-jar", "/usr/local/lib/sakkokassa.jar"]
